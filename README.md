@@ -28,7 +28,7 @@ A lightweight proxy server runs on your PC and handles YouTube data fetching and
 
 1. Download `streamu.cia` (or `.3dsx`) and `StreaMu-Server.zip` from [Releases](../../releases)
 2. Install the CIA on your 3DS with FBI
-3. Extract `StreaMu-Server.zip` and run the EXE inside
+3. Extract `StreamMu.zip` and run the EXE inside the dist folder
 4. Launch StreaMu on your 3DS and enter the IP address shown on the server dashboard
 5. Search for music with the Y button and enjoy!
 
@@ -43,34 +43,18 @@ Download `streamu.cia` or `streamu.3dsx` from [Releases](../../releases).
 
 #### Option A: Standalone EXE (Recommended)
 
-Download `StreaMu-Server.zip` from [Releases](../../releases), extract it, and run `StreaMu-Server.exe`.
+Download `StreaMu.zip` from [Releases](../../releases), extract it, and run `StreaMu-Server.exe` from the dist folder
+
+i have also left inside the zip an build_exe that uses pyinstaller to auto install/update the required pip programs, then package that into an exe as a way to self update the exe, when eventually google decide to update/change something again
 
 The server uses native YouTube Opus audio and does not require FFmpeg. No Python or manual setup needed.
 
-#### Option B: Python Script
-
-Mac / Linux:
-```bash
-cd server
-chmod +x start_server.sh
-./start_server.sh
-```
+if you do not want to run the script, you can simply run proxy.py in the terminal, i will also replace pretty much all the files with the custom ones
 
 This will:
 1. Create a Python virtual environment
-2. Install required packages (starlette, yt-dlp, uvicorn)
+2. Install required packages (starlette, yt-dlp, uvicorn) (the reason the old version failed, was because the old program used very old versions of pip programs which where obselete, as soon as i updated those pip files, it worked flawlessly
 3. Start the proxy server
-
-Windows:
-```bash
-cd server
-python setup.py
-venv\Scripts\python proxy.py
-```
-
-Or double-click `start_server.bat` in the `server/` folder.
-
-The server starts on port 8080. Open `http://localhost:8080` in your browser to view the dashboard.
 
 ### Usage
 
